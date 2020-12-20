@@ -26,7 +26,7 @@ async def get_pokemon(pokemon, session):
             for pokemon_type in poke_types:
                 if pokemon_type['type']['name'] in BL_TYPES:
                     return
-        print(f"Pokemon ID {pokemon['id']} | Pokemon name: {pokemon['name']}")
+        log.info(f"Pokemon ID {pokemon['id']} | Pokemon name: {pokemon['name']}")
         received_pokemon = await send_data(pokemon, session)
         return received_pokemon
 

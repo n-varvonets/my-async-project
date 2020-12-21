@@ -1,4 +1,6 @@
 aiohttp==3.7.3
+allure-pytest==2.8.24
+allure-python-commons==2.8.24
 async-timeout==3.0.1
 atomicwrites==1.4.0
 attrs==20.3.0
@@ -17,6 +19,7 @@ pyparsing==2.4.7
 pytest==6.2.1
 pytest-aiohttp==0.3.0
 requests==2.25.1
+six==1.15.0
 toml==0.10.2
 typing-extensions==3.7.4.3
 urllib3==1.26.2

@@ -8,12 +8,24 @@ MIN_WEIGHT = 50  # by def
 
 async def process_pokemon_handler(request):
     pokemon = json.loads(await request.text())
+
+    valid, field = check_required_field(pokemon)
+    if not valid:
+        raise web.HTTPBadRequest(text=f'Missed required field: "{field}"')
+
     new_name = change_pokemon_name(pokemon)
     data = {
-            'name': new_name,
-            'id': pokemon['id']
-        }
+        'name': new_name,
+        'id': pokemon['id']
+    }
     return web.json_response(data)
+
+
+def check_required_field(pokemon):
+    for field in ['weight', 'name', 'id']:
+        if field not in pokemon:
+            return False, field
+    return True, None
 
 
 def change_pokemon_name(pokemon):
